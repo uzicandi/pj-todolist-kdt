@@ -1,0 +1,26 @@
+.button {
+  border: none;
+  border-radius: 12px; /* 직사각형 및 원형 모두 지원하기 위해 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.iconButton {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.textButton {
+  padding: 10px 20px;
+}
+
+.text {
+  margin-left: 8px;
+  font-size: 16px;
+  color: #1E293B; /* slate/800 */
+}
