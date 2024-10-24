@@ -1,17 +1,26 @@
 import React from 'react';
-import CircleButton from './CircleButton'; // CircleButton 컴포넌트 임포트
+import CircleButton from './CircleButton';
+import colors from '../../../../src/styles/theme/colors';
+import { PlusGrayIcon } from '@/assets/icons/plus_gray';
+import { EditIcon } from '@/assets/icons/edit';
 
-// 스토리 메타 데이터를 반드시 export
+
+
 export default {
-  title: 'common/CircleButton', // 스토리북에서 표시될 이름 (폴더 구조처럼)
-  component: CircleButton, // 스토리북에서 다룰 컴포넌트 지정
+  title: 'common/CircleButton',
+  component: CircleButton,
 };
 
 const Template = (args) => <CircleButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  // 여기에 CircleButton이 필요로 하는 기본 props를 설정
-  icon: '+',
-  color: '#E2E8F0',
+  icon: <PlusGrayIcon />,
+  color: colors.grey900,
+};
+
+export const Edit = Template.bind({});
+Edit.args = {
+  icon: <EditIcon />,
+  color: colors.grey500,
 };
