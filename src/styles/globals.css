@@ -19,3 +19,19 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+:root {
+  --slate-900: #0F172A;
+  --slate-800: #1E293B;
+  --slate-500: #64748B;
+  --slate-400: #94A3B8;
+  --slate-300: #CBD5E1;
+  --slate-200: #E2E8F0;
+  --slate-100: #F1F5F9;
+  --violet-100: #EDE9FE;
+  --violet-600: #7C3AED;
+  --rose-500: #F43F5E;
+  --lime-300: #BEF264;
+  --amber-800: #92400E;
+}
