@@ -1,9 +1,7 @@
 /* GNB 기본 스타일 */
 .navbar {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
   background-color: #FFFFFF;
   height: 60px;
   border-bottom: 1px solid #E2E8F0;
@@ -15,27 +13,24 @@
 }
 
 .logo {
-  width: 50px;
-  height: auto;
+  width: 100%;
+  height: 40px;
 }
 
-/* 작은 화면 (375px 이하)에서는 doit_simple.svg를 사용 */
 @media (max-width: 375px) {
-  .logo {
-    width: 40px; /* 작은 화면에서는 로고 크기 조정 */
+  .logoContainer {
+    margin-left: 16px;
   }
 }
 
-/* 중간 화면 (744px 이상)에서는 doit.svg를 사용 */
-@media (min-width: 744px) {
-  .logo {
-    width: 60px;
+@media (min-width: 744px) and (max-width: 1919px) {
+  .logoContainer {
+    margin-left: 24px;
   }
 }
 
-/* 큰 화면 (1920px 이상)에서는 로고 크기 증가 */
 @media (min-width: 1920px) {
-  .logo {
-    width: 80px;
+  .logoContainer {
+    margin-left: 360px;
   }
 }
