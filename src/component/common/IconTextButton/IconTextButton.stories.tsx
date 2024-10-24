@@ -1,7 +1,7 @@
 import React from 'react';
 import IconTextButton from './IconTextButton'; // CircleButton 컴포넌트 임포트
-
-
+import colors from '@/styles/theme/colors';
+import { PlusGrayIcon } from '@/assets/icons/plus_gray';
 
 // 스토리 메타 데이터를 반드시 export
 export default {
@@ -14,7 +14,8 @@ const Template = (args) => <IconTextButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  // 여기에 CircleButton이 필요로 하는 기본 props를 설정
-  icon: '+',
-  color: '#E2E8F0',
+  icon: <PlusGrayIcon />,
+  text: '추가하기',
+  color: colors.slate200
 };
+

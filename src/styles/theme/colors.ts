@@ -1,11 +1,11 @@
 const colors = {
-  grey900: '#0F172A',
-  grey800: '#1E293B',
-  grey500: '#64748B',
-  grey400: '#94A3B8',
-  grey300: '#CBD5E1',
-  grey200: '#E2E8F0',
-  grey100: '#F1F5F9',
+  slate900: '#0F172A',
+  slate800: '#1E293B',
+  slate500: '#64748B',
+  slate400: '#94A3B8',
+  slate300: '#CBD5E1',
+  slate200: '#E2E8F0',
+  slate100: '#F1F5F9',
 
   violet100: '#EDE9FE',
   violet600: '#7C3AED',

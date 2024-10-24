@@ -1,3 +1,4 @@
+
 .circleButton {
   border: none;
   border-radius: 50%;
@@ -13,5 +14,7 @@
 
 .icon {
   font-size: 24px;
-  color: #1E293B; /* slate/800 */
+  color: var(--slate-800); 
+  border-radius: 50%;
+  background: #0F172A80;
 }

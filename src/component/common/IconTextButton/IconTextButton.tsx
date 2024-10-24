@@ -9,10 +9,13 @@ interface IconTextButtonProps {
 
 const IconTextButton = ({ icon, text, color }: IconTextButtonProps) => {
   return (
-    <button className={`${styles.button} ${text ? styles.textButton : styles.iconButton}`} style={{ backgroundColor: color }}>
-      {icon}
-      {text && <span className={styles.text}>{text}</span>}
-    </button>
+    <div className={styles.wrapper}>
+      <div className={`${styles.buttonShadow}`} />
+      <button className={`${styles.button} ${text ? styles.textButton : styles.iconButton}`} style={{ backgroundColor: color }}>
+        {icon}
+        {text && <span className={styles.text}>{text}</span>}
+      </button>
+    </div>
   );
 };
 
