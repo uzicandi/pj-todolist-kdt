@@ -4,3 +4,12 @@ import { Item } from './todos.type';
 export const getTodos = async () => {
   return await api.get('api/jiwoo/items').json<Item[]>();
 };
+
+export const postTodo = async ({
+  id,
+  isCompleted,
+}: Pick<Item, 'id' | 'isCompleted'>) => {
+  return await api
+    .patch(`api/jiwoo/items/${id}`, { json: { isCompleted } })
+    .json<Item>();
+};

@@ -5,6 +5,8 @@ import styles from './TodoList.module.css';
 import Link from 'next/link';
 import { Item } from '@/apis/todos.type';
 import DoneImage from '../../../assets/images/done.png';
+import { useMutationTodos } from '@/apis/todos.query';
+import { useCallback } from 'react';
 
 
 interface Props {
@@ -13,6 +15,12 @@ interface Props {
 }
 
 const TodoList = ({ list, checked }: Props) => {
+  const mutation = useMutationTodos();
+
+  const handleCheckClick = useCallback(({ id, isCompleted }: Pick<Item, 'id' | 'isCompleted'>) => {
+    mutation.mutate({ id, isCompleted });
+  }, []);
+
   return (
     <div className={styles.todoList}>
       <Image src={checked ? DoneImage : TodoImage} alt={checked ? "Done List" : "Todo List"} width={101} height={36} />
@@ -22,7 +30,7 @@ const TodoList = ({ list, checked }: Props) => {
           list.map((item) => (
             <li key={item.id}>
               <Link href={`/items/${item.id}`}>
-                <CheckList {...item} />
+                <CheckList {...item} onClick={() => handleCheckClick({ id: item.id, isCompleted: !item.isCompleted })} />
               </Link>
             </li>
           ))
