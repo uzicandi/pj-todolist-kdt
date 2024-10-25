@@ -15,6 +15,6 @@ const colors = {
   lime300: '#BEF264',
 
   amber800: '#92400E',
-};
+} as const;
 
 export default colors;

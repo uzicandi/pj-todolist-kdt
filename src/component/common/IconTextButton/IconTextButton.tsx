@@ -6,7 +6,7 @@ interface IconTextButtonProps {
   text: string;
   color: string;
 }
-
+// box-shadow를 이용해보세요.
 const IconTextButton = ({ icon, text, color }: IconTextButtonProps) => {
   return (
     <div className={styles.wrapper}>

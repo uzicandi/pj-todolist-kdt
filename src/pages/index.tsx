@@ -1,17 +1,21 @@
 import Header from '@/component/layout/Header';
 import ContentArea from '@/component/ui/ContentArea/ContentArea';
 import SearchForm from '@/component/feature/SearchForm/SearchForm';
-import MainForm from '@/component/layout/MainForm/MainForm';
-
+import MainTodos from '@/component/layout/MainTodos/MainTodos';
+import { Suspense } from 'react';
 
 
 export default function Home() {
+  console.log('index');
+
   return (
     <>
       <Header />
       <ContentArea>
         <SearchForm />
-        <MainForm />
+        <Suspense fallback={<div>...loading</div>}>
+          <MainTodos />
+        </Suspense>
       </ContentArea>
     </>
   );

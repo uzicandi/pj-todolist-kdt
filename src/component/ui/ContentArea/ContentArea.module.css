@@ -1,12 +1,12 @@
 
 @media (min-width: 1200px) and (max-width: 1920px) {
   .contentArea {
-    padding: 0 360px;
+    padding: 40px 360px;
   }
 }
 
 @media  (max-width: 1199px) {
   .contentArea {
-    padding: 0 24px;
+    padding: 40px 24px;
   }
 }
