@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './IconTextButton.module.css';
 
 interface IconTextButtonProps {
-  icon: React.ReactNode;
-  text?: string;
+  icon?: React.ReactNode;
+  text: string;
   color: string;
 }
 

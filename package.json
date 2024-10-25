@@ -16,6 +16,7 @@
     "next": "^14.2.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive": "^10.0.0",
     "storybook": "^8.3.6"
   },
   "devDependencies": {

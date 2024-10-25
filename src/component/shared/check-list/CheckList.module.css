@@ -7,8 +7,9 @@
   align-items: flex-start;
   padding: 0;
   gap: 10px;
-  position: absolute;
-  width: 527px;
+  position: relative;
+  max-width: 100%;
+  width: 100%;
   height: 50px;
 }
 
@@ -23,9 +24,12 @@
   align-items: center;
   padding: 0;
   gap: 16px;
-  position: absolute;
+  /* position: absolute;
   width: 158px;
-  height: 32px;
+  height: 32px; */
+  position: relative; /* Changed from absolute to relative for better layout control */
+  width: auto; /* Allow width to adjust based on content */
+  height: auto; /* Allow height to adjust based on content */
   left: 12px;
   top: 9px;
 }
@@ -41,7 +45,8 @@
   display: flex;
   align-items: center;
   text-align: center;
-  width: 110px;
+  /* width: 110px; */
+  width: auto;
   height: 18px;
 }
 

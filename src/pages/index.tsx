@@ -1,20 +1,18 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-import CircleButton from '@/component/common/CircleButton/CircleButton';
+import Header from '@/component/layout/Header';
+import ContentArea from '@/component/ui/ContentArea/ContentArea';
+import SearchForm from '@/component/feature/SearchForm/SearchForm';
+import MainForm from '@/component/layout/MainForm/MainForm';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export default function Home() {
   return (
-    <CircleButton />
+    <>
+      <Header />
+      <ContentArea>
+        <SearchForm />
+        <MainForm />
+      </ContentArea>
+    </>
   );
 }

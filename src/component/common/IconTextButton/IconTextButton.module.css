@@ -1,11 +1,14 @@
 .wrapper {
   position: relative;
-  display: inline-block; /* 버튼과 그림자가 함께 움직이도록 래퍼 생성 */
+  display: inline-block;
+  width: 168px;
+  height: 56px;
+
 }
 
 .button {
   border: 2px solid #0F172A;
-  border-radius: 24px; /* 직사각형 및 원형 모두 지원하기 위해 */
+  border-radius: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,19 +16,28 @@
   padding: 10px;
   transition: background-color 0.3s ease;
   position: relative;
-  z-index: 2; /* 상단에 위치하도록 설정 */
+  z-index: 2; 
+  width: 100%;
+  height: 56px;
+
 }
 
 .buttonShadow {
   background-color: #0F172A; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
   border-radius: 36px; 
-  width: 100%; 
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 4px; 
   left: 3.65px;
   z-index: 1;
+}
+
+@media (max-width: 360px) {
+  .buttonShadow {
+    width: 64px;
+  }
 }
 
 .iconButton {

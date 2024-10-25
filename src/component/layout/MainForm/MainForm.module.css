@@ -1,0 +1,16 @@
+.mainForm {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    width: 100%
+}
+
+@media (max-width: 768px) {
+  .mainForm {
+      display: block; 
+    }
+
+  .mainForm > *:not(:last-child) { 
+    margin-bottom: 48px; 
+  }
+}
