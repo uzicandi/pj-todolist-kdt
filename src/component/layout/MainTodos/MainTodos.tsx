@@ -19,12 +19,9 @@ const MainTodos = () => {
     });
   }, [todosData, mutatedData]);
 
-  console.log({ newTodosData });
 
   const todos = useMemo(() => newTodosData.filter((todo) => !todo.isCompleted), [newTodosData]);
   const dones = useMemo(() => newTodosData.filter((todo) => todo.isCompleted), [newTodosData]);
-
-  console.log({ todos, dones });
 
   useEffect(() => {
     console.log({ newTodosData });
