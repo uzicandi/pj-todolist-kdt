@@ -9,9 +9,9 @@ interface CircleButtonProps {
 }
 
 // font-color는 어떻게 처리할 수 있을까요? porps로 받던지, 컬러에따른 맵핑을하던지
-const CircleButton = ({ icon, color }: CircleButtonProps) => {
+const CircleButton = ({ icon, color, onClick }: CircleButtonProps) => {
   return (
-    <button className={styles.circleButton} style={{ backgroundColor: color }}>
+    <button className={styles.circleButton} style={{ backgroundColor: color }} onClick={onClick}>
       {icon}
     </button>
   );

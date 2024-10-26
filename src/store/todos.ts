@@ -4,7 +4,14 @@ import {
   queryClientAtom,
 } from 'jotai-tanstack-query';
 import { Item } from '@/apis/todos.type';
-import { getTodo, getTodos, patchTodo, postTodos } from '@/apis/todos';
+import {
+  getTodo,
+  getTodos,
+  patchTodo,
+  postTodos,
+  uploadIamge,
+  uploadImage,
+} from '@/apis/todos';
 
 export const todosAtom = atomWithQuery<Item[]>(() => ({
   queryKey: ['todos'],

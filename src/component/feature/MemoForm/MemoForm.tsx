@@ -7,7 +7,7 @@ const MemoForm = () => {
   return (
     <div className={styles.memoForm}>
       <Image className={styles.memo} src={Memo} alt="memo" />
-      <input className={styles.memoInput} type="text" placeholder="메모를 입력해주세요" />
+      <textarea className={styles.memoInput} placeholder="메모를 입력해주세요" />
     </div>
   );
 }
