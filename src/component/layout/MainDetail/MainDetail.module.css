@@ -5,12 +5,33 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .mainForm {
+.mainNav {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .mainNav {
       display: block; 
     }
 
-  .mainForm > *:not(:last-child) { 
-    margin-bottom: 48px; 
+  .mainNav > *:not(:last-child) { 
+    margin-bottom: 24px; 
+  }
+}
+
+.buttonNav {
+  display: flex;
+  gap: 16px;
+  height: 56px;
+  justify-content: flex-end;
+  
+}
+
+@media(max-width: 1199px) {
+  .buttonNav {
+    justify-content: center;
+    align-items: center;
   }
 }

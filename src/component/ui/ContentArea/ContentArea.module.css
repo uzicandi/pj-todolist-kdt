@@ -1,6 +1,5 @@
 
-
-@media (min-width: 1200px) and (max-width: 1920px) {
+@media (min-width: 1200px)  {
   .contentArea {
     padding: 40px 360px;
   }
