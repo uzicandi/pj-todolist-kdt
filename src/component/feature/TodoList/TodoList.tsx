@@ -5,8 +5,6 @@ import styles from './TodoList.module.css';
 import Link from 'next/link';
 import { Item } from '@/apis/todos.type';
 import DoneImage from '../../../assets/images/done.png';
-import { useAtom } from 'jotai';
-import { patchTodosAtom } from '@/store/todos';
 
 interface Props {
   list: Item[];
