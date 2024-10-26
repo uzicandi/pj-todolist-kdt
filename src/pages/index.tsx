@@ -6,8 +6,6 @@ import { Suspense } from 'react';
 
 
 export default function Home() {
-  console.log('index');
-
   return (
     <>
       <Header />

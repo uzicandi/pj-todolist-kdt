@@ -5,21 +5,19 @@ import styles from './TodoList.module.css';
 import Link from 'next/link';
 import { Item } from '@/apis/todos.type';
 import DoneImage from '../../../assets/images/done.png';
-import { useMutationTodos } from '@/apis/todos.query';
-import { useCallback } from 'react';
-
+import { useAtom } from 'jotai';
+import { patchTodosAtom } from '@/store/todos';
 
 interface Props {
   list: Item[];
   checked: boolean;
+  mutate: (data: Pick<Item, 'id' | 'isCompleted'>) => void;
 }
 
-const TodoList = ({ list, checked }: Props) => {
-  const mutation = useMutationTodos();
-
-  const handleCheckClick = useCallback(({ id, isCompleted }: Pick<Item, 'id' | 'isCompleted'>) => {
-    mutation.mutate({ id, isCompleted });
-  }, []);
+const TodoList = ({ list, checked, mutate }: Props) => {
+  const handleCheckClick = ({ id, isCompleted }: Pick<Item, 'id' | 'isCompleted'>) => {
+    mutate({ id, isCompleted });
+  };
 
   return (
     <div className={styles.todoList}>

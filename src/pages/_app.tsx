@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-
+import { Provider } from 'jotai';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,10 +16,10 @@ const queryClient = new QueryClient({
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('app');
-
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <Provider>
+        <Component {...pageProps} />
+      </Provider>
     </QueryClientProvider>);
 }

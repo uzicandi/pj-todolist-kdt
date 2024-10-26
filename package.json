@@ -12,8 +12,11 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.13.0",
+    "@tanstack/query-core": "^5.59.16",
     "@tanstack/react-query": "^5.59.16",
     "emotion": "^11.0.0",
+    "jotai": "^2.10.1",
+    "jotai-tanstack-query": "^0.9.0",
     "ky": "^1.7.2",
     "next": "^14.2.16",
     "react": "^18.2.0",

@@ -5,7 +5,7 @@ export const getTodos = async () => {
   return await api.get('api/jiwoo/items').json<Item[]>();
 };
 
-export const postTodo = async ({
+export const patchTodo = async ({
   id,
   isCompleted,
 }: Pick<Item, 'id' | 'isCompleted'>) => {

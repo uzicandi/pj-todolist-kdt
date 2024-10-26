@@ -3,7 +3,7 @@ import {
   useMutation,
   QueryClient,
 } from '@tanstack/react-query';
-import { getTodos, postTodo } from './todos';
+import { getTodos, patchTodo } from './todos';
 import { Item } from './todos.type';
 
 export const useQueryTodos = () =>
@@ -18,7 +18,7 @@ export const useMutationTodos = () => {
   const queryClient = new QueryClient();
 
   return useMutation({
-    mutationFn: postTodo,
+    mutationFn: patchTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['id'] });
     },
