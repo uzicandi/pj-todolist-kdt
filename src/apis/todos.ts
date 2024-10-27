@@ -1,12 +1,12 @@
 import { api } from '@/pages/api/api';
-import { Item } from './todos.type';
+import { DetailItem, Item } from './todos.type';
 
 export const getTodos = async () => {
   return await api.get('api/jiwoo/items').json<Item[]>();
 };
 
-export const getTodo = async ({ id }: Pick<Item, 'id'>) => {
-  return await api.get(`api/jiwoo/items/${id}`).json<Item>();
+export const getTodo = async ({ id }: Pick<DetailItem, 'id'>) => {
+  return await api.get(`api/jiwoo/items/${id}`).json<DetailItem>();
 };
 
 export const postTodos = async ({ name }: Pick<Item, 'name'>) => {
@@ -16,8 +16,14 @@ export const postTodos = async ({ name }: Pick<Item, 'name'>) => {
 export const patchTodo = async ({
   id,
   isCompleted,
-}: Pick<Item, 'id' | 'isCompleted'>) => {
+  memo,
+  imageUrl,
+}: DetailItem) => {
   return await api
-    .patch(`api/jiwoo/items/${id}`, { json: { isCompleted } })
+    .patch(`api/jiwoo/items/${id}`, { json: { isCompleted, memo, imageUrl } })
     .json<Item>();
+};
+
+export const deleteTodo = async ({ id }: Pick<Item, 'id'>) => {
+  return await api.delete(`api/jiwoo/items/${id}`).json<Item>();
 };

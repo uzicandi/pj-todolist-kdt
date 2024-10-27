@@ -6,6 +6,7 @@ interface IconTextButtonProps {
   text: string;
   color: string;
   type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
 }
 
 // box-shadow를 이용해보세요.

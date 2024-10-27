@@ -3,14 +3,14 @@ import {
   atomWithMutation,
   queryClientAtom,
 } from 'jotai-tanstack-query';
-import { Item } from '@/apis/todos.type';
+import { atom } from 'jotai';
+import { DetailItem, Item } from '@/apis/todos.type';
 import {
+  deleteTodo,
   getTodo,
   getTodos,
   patchTodo,
   postTodos,
-  uploadIamge,
-  uploadImage,
 } from '@/apis/todos';
 
 export const todosAtom = atomWithQuery<Item[]>(() => ({
@@ -20,7 +20,7 @@ export const todosAtom = atomWithQuery<Item[]>(() => ({
 
 export const todoAtom = (todoId: number) => {
   console.log({ todoId });
-  return atomWithQuery<Item>(() => ({
+  return atomWithQuery<DetailItem>(() => ({
     queryKey: ['todos', todoId],
     queryFn: () => getTodo({ id: todoId }),
   }));
@@ -41,10 +41,18 @@ export const patchTodosAtom = atomWithMutation((get) => {
   return {
     mutationKey: ['todos'],
     mutationFn: patchTodo,
-    onMutate: ({ id, isCompleted }: Pick<Item, 'id' | 'isCompleted'>) => {
-      return { id, isCompleted };
+    onSuccess: () => {
+      const client = get(queryClientAtom);
+      client.invalidateQueries({ queryKey: ['todos'] });
     },
-    onSettled: () => {
+  };
+});
+
+export const deleteTodosAtom = atomWithMutation((get) => {
+  return {
+    mutationKey: ['todos'],
+    mutationFn: deleteTodo,
+    onSuccess: () => {
       const client = get(queryClientAtom);
       client.invalidateQueries({ queryKey: ['todos'] });
     },
