@@ -6,7 +6,7 @@ import { useEffect, useMemo } from 'react';
 
 
 const MainTodos = () => {
-  const [{ data: todosData, isPending, isError }] = useAtom(todosAtom);
+  const [{ data: todosData, isPending }] = useAtom(todosAtom);
   const [{ data: mutatedData, mutate, isPending: isMutatePending }] = useAtom(patchTodosAtom);
 
   const newTodosData = useMemo(() => {

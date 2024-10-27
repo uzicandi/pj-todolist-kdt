@@ -19,7 +19,7 @@ src
 │   ├── icons
 │   └── images
 ├── component
-│   ├── common
+│   ├── commonㅁ
 │   │   ├── CircleButton
 │   │   └── IconTextButton
 │   ├── feature

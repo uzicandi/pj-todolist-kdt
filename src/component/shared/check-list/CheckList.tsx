@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './CheckList.module.css';
 import { CheckBoxIcon } from '@/assets/icons/checkbox';
 import { CheckedIcon } from '@/assets/icons/checked';
-import { DetailItem, Item } from '@/apis/todos.type';
+import { Item } from '@/apis/todos.type';
 import { inputsAtom } from '@/store/atoms';
 import { useAtom } from 'jotai';
 

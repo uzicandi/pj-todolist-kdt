@@ -11,7 +11,7 @@ import { useState } from 'react'
 
 const SearchForm = () => {
   const isSmallScreen = useMediaQuery({ query: '(max-width: 360px)' }) // 공통화 할 수 있는 부분이지 useCheckSmallScreen
-  const [{ data, mutate }] = useAtom(postTodosAtom);
+  const [{ mutate }] = useAtom(postTodosAtom);
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

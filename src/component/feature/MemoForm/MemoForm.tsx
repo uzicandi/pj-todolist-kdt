@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Memo from '../../../assets/images/memo.png';
 import styles from './MemoForm.module.css';
 import { inputsAtom } from '@/store/atoms';

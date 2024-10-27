@@ -21,7 +21,7 @@ const MainDetail = ({ itemId }: Props) => {
   const todoAtomInstance = useMemo(() => todoAtom(itemId), [itemId]);
   const [{ mutate: deleteMutate }] = useAtom(deleteTodosAtom);
   const [{ mutate: updateMutate }] = useAtom(patchTodosAtom);
-  const [inputs, setInputs] = useAtom(inputsAtom);
+  const [inputs] = useAtom(inputsAtom);
 
   const [{ data }] = useAtom(todoAtomInstance);
   if (!data) return null;
