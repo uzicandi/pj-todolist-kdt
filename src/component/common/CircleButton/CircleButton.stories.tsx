@@ -12,12 +12,16 @@ export default {
 const Template = (args) => <CircleButton {...args} />;
 
 export const Default = Template.bind({});
+
+//@ts-ignore
 Default.args = {
   icon: <PlusGrayIcon />,
   color: colors.slate200
 };
 
 export const Edit = Template.bind({});
+
+//@ts-ignore
 Edit.args = {
   icon: <EditIcon />,
   color: colors.slate900,

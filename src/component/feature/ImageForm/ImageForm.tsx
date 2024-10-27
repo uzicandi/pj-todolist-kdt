@@ -54,10 +54,9 @@ const ImageForm = ({ imageUrl }: Props) => {
       formData.append('image', file); // Use 'image' as the key to match the backend
 
       try {
-        const response = await api.post('api/jiwoo/images/upload', {
+        const response: UploadResponse = await api.post('api/jiwoo/images/upload', {
           body: formData, // Send FormData directly in the body
         }).json();
-
         setUploadResponse(response);
         setInputs({ ...inputs, imageUrl: response.url });
       } catch (error) {
@@ -77,7 +76,7 @@ const ImageForm = ({ imageUrl }: Props) => {
         {error && <p className={styles.errorMessage}>{error}</p>}
       </> : null}
       <div className={styles.imageButton}>
-        <CircleButton icon={<PlusGrayIcon />} color={colors.slate200} onClick={handleButtonClick} />
+        <CircleButton icon={<PlusGrayIcon />} color="slate200" onClick={handleButtonClick} />
         <input
           ref={fileInputRef}
           id="fileInput"

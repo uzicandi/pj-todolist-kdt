@@ -9,7 +9,7 @@ export default function Page() {
     <>
       <Header />
       <ContentArea>
-        <MainDetail itemId={itemId} />
+        <MainDetail itemId={Number(itemId)} />
       </ContentArea>
     </>
   )
