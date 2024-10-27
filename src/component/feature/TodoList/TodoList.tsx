@@ -5,11 +5,9 @@ import styles from './TodoList.module.css';
 import Link from 'next/link';
 import { Item } from '@/apis/todos.type';
 import DoneImage from '../../../assets/images/done.png';
-import BigTodoEmptyImage from '../../../assets/images/empty1.png';
-import SmallTodoEmptyImage from '../../../assets/images/empty2.png';
-import BigDoneEmptyImage from '../../../assets/images/empty3.png';
-import SmallEmptyImage from '../../../assets/images/empty4.png';
-import { useMediaQuery } from 'react-responsive'
+import TodoEmptyImage from '../../../assets/images/empty1.png';
+import DoneEmptyImage from '../../../assets/images/empty3.png';
+import fonts from '@/styles/theme/fonts';
 
 interface Props {
   list: Item[];
@@ -18,7 +16,6 @@ interface Props {
 }
 
 const TodoList = ({ list, checked, mutate }: Props) => {
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 360px)' })
   const handleCheckClick = ({ id, isCompleted }: Pick<Item, 'id' | 'isCompleted'>) => {
     mutate({ id, isCompleted });
   };
@@ -32,7 +29,7 @@ const TodoList = ({ list, checked, mutate }: Props) => {
       {list.length === 0 ?
         <div className={styles.emptyImage}>
           <Image
-            src={checked ? BigDoneEmptyImage : BigTodoEmptyImage}
+            src={checked ? DoneEmptyImage : TodoEmptyImage}
             alt={checked ? "Done List Empty" : "Todo List Empty"}
           />
           {checked &&
