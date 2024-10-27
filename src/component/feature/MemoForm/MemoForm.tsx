@@ -15,7 +15,7 @@ const MemoForm = ({ data }: Props) => {
 
   useEffect(() => {
     if (data.memo) {
-      setInputs({ ...inputs, imageUrl: data.imageUrl, memo: data.memo });
+      setInputs({ ...inputs, name: data.name, imageUrl: data.imageUrl, memo: data.memo });
     }
   }, [data.memo]);
 

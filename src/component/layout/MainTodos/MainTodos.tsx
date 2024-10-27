@@ -24,12 +24,10 @@ const MainTodos = () => {
   const dones = useMemo(() => newTodosData.filter((todo) => todo.isCompleted), [newTodosData]);
 
   useEffect(() => {
-    console.log({ newTodosData });
   }, [newTodosData]);
   if (isPending) return <div>Loading...</div>
   if (isMutatePending) return <div>Loading...</div>
   if (!todosData) return null;
-
 
   return (
     <div className={styles.mainForm}>

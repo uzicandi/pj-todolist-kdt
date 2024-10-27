@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
-import LogoIconFull from '../../assets/images/doit.png';
-import LogoIconSimple from '../../assets/images/doit_icon.png'
+import LogoIconFull from '../../../assets/images/doit.png';
+import LogoIconSimple from '../../../assets/images/doit_icon.png'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 

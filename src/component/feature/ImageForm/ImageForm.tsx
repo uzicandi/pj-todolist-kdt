@@ -22,12 +22,6 @@ const ImageForm = ({ imageUrl }: Props) => {
   const [error] = useState<string | null>(null)
   const [inputs, setInputs] = useAtom(inputsAtom);
 
-  console.log({
-    imageUrl,
-    inputs,
-    uploadResponse,
-  })
-
   useEffect(() => {
     if (imageUrl && !uploadResponse) {
       setInputs({ ...inputs, imageUrl });
@@ -40,7 +34,6 @@ const ImageForm = ({ imageUrl }: Props) => {
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log(file?.size);
     const formData = new FormData();
 
     if (file) {
@@ -65,8 +58,6 @@ const ImageForm = ({ imageUrl }: Props) => {
           body: formData, // Send FormData directly in the body
         }).json();
 
-        console.log(response);
-
         setUploadResponse(response);
         setInputs({ ...inputs, imageUrl: response.url });
       } catch (error) {
@@ -74,11 +65,8 @@ const ImageForm = ({ imageUrl }: Props) => {
       }
     }
   };
-  console.log({ imageUrl });
 
 
-  // imageUrl 리턴하기 
-  // memo 기본값 
   return (
     <div className={styles.imageForm}>
       {imageUrl !== null && !uploadResponse ? <img src={imageUrl} alt="Uploaded" className={styles.uploadedImage} /> : null}

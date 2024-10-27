@@ -15,12 +15,15 @@ export const postTodos = async ({ name }: Pick<Item, 'name'>) => {
 
 export const patchTodo = async ({
   id,
+  name,
   isCompleted,
   memo,
   imageUrl,
 }: DetailItem) => {
   return await api
-    .patch(`api/jiwoo/items/${id}`, { json: { isCompleted, memo, imageUrl } })
+    .patch(`api/jiwoo/items/${id}`, {
+      json: { name, isCompleted, memo, imageUrl },
+    })
     .json<Item>();
 };
 

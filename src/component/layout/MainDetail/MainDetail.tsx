@@ -21,16 +21,19 @@ const MainDetail = ({ itemId }: Props) => {
   const todoAtomInstance = useMemo(() => todoAtom(itemId), [itemId]);
   const [{ mutate: deleteMutate }] = useAtom(deleteTodosAtom);
   const [{ mutate: updateMutate }] = useAtom(patchTodosAtom);
-  const [inputs] = useAtom(inputsAtom);
-  console.log({ inputs });
+  const [inputs, setInputs] = useAtom(inputsAtom);
 
   const [{ data }] = useAtom(todoAtomInstance);
   if (!data) return null;
 
-  const handleUpdateClick = () => {
-    updateMutate({ ...data, imageUrl: inputs.imageUrl, memo: inputs.memo }); // data, memo 추가 
-    alert('수정되었습니다.');
+  const handleUpdateClick = async () => {
+    await updateMutate({ ...data, name: inputs.name, imageUrl: inputs.imageUrl, memo: inputs.memo });
+    router.push('/');
   }
+
+  const handleUpdateTodoClick = () => {
+    updateMutate({ ...data, isCompleted: !data.isCompleted });
+  };
 
   const handleDeleteClick = () => {
     deleteMutate({ id: itemId });
@@ -39,7 +42,7 @@ const MainDetail = ({ itemId }: Props) => {
 
   return (
     <div className={styles.mainDetail}>
-      <CheckList {...data} />
+      <CheckList {...data} onClick={handleUpdateTodoClick} changable />
       <div className={styles.mainNav}>
         <ImageForm imageUrl={data.imageUrl} />
         <MemoForm data={data} />

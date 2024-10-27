@@ -7,7 +7,6 @@ import { Item } from '@/apis/todos.type';
 import DoneImage from '../../../assets/images/done.png';
 import TodoEmptyImage from '../../../assets/images/empty1.png';
 import DoneEmptyImage from '../../../assets/images/empty3.png';
-import fonts from '@/styles/theme/fonts';
 
 interface Props {
   list: Item[];
@@ -20,7 +19,7 @@ const TodoList = ({ list, checked, mutate }: Props) => {
     mutate({ id, isCompleted });
   };
 
-  if (!list) return
+  if (!list) return;
 
   return (
     <div className={styles.todoList}>

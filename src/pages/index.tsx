@@ -1,4 +1,4 @@
-import Header from '@/component/layout/Header';
+import Header from '@/component/layout/Header/Header';
 import ContentArea from '@/component/ui/ContentArea/ContentArea';
 import SearchForm from '@/component/feature/SearchForm/SearchForm';
 import MainTodos from '@/component/layout/MainTodos/MainTodos';

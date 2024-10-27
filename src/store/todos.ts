@@ -19,7 +19,6 @@ export const todosAtom = atomWithQuery<Item[]>(() => ({
 }));
 
 export const todoAtom = (todoId: number) => {
-  console.log({ todoId });
   return atomWithQuery<DetailItem>(() => ({
     queryKey: ['todos', todoId],
     queryFn: () => getTodo({ id: todoId }),

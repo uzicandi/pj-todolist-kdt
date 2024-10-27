@@ -53,3 +53,7 @@
 .checkedLabel {
   text-decoration: line-through;
 }
+
+.inputLabel {
+  background-color: transparent;
+}
