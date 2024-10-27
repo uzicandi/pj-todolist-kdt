@@ -2,7 +2,7 @@
     display: flex;
     gap: 24px;
     margin-top: 40px;
-    width: 100%
+    width: 100%;
 }
 
 @media (max-width: 768px) {

@@ -10,3 +10,30 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.emptyImage {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.emptyImage img {
+  width: 240px;
+  height: 240px;
+}
+
+@media (max-width: 375px) {
+  .emptyImage img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.emptyText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
