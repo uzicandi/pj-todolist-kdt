@@ -3,7 +3,6 @@ import {
   atomWithMutation,
   queryClientAtom,
 } from 'jotai-tanstack-query';
-import { atom } from 'jotai';
 import { DetailItem, Item } from '@/apis/todos.type';
 import {
   deleteTodo,
