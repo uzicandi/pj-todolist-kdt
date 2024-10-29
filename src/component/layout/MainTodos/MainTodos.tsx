@@ -6,8 +6,8 @@ import { useMemo } from 'react';
 
 
 const MainTodos = () => {
-  const [{ data: todosData, isPending }] = useAtom(todosAtom);
-  const [{ data: mutatedData, mutate, isPending: isMutatePending }] = useAtom(patchTodosAtom);
+  const [{ data: todosData }] = useAtom(todosAtom);
+  const [{ data: mutatedData, mutate }] = useAtom(patchTodosAtom);
 
   const newTodosData = useMemo(() => {
     if (!todosData) return [];
@@ -23,7 +23,6 @@ const MainTodos = () => {
   const todos = useMemo(() => newTodosData.filter((todo) => !todo.isCompleted), [newTodosData]);
   const dones = useMemo(() => newTodosData.filter((todo) => todo.isCompleted), [newTodosData]);
 
-  // if (isPending || isMutatePending) return <div>...loading</div>;
   if (!todosData) return null;
 
   return (
