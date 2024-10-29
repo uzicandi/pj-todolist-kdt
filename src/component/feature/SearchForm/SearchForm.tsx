@@ -23,13 +23,19 @@ const SearchForm = () => {
     setInputValue('');
   }
 
+  const isTodosEmpty = todosData?.length === 0;
+  const buttonProperties = {
+    color: !isTodosEmpty ? colors.slate200 : colors.violet600,
+    textColor: !isTodosEmpty ? colors.slate900 : '#fff',
+    icon: !isTodosEmpty ? <PlusGrayIcon width={16} height={16} /> : <PlusWhiteIcon width={16} height={16} />
+  }
+
   if (isPending) return null;
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
       <Search value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-      {todosData.length > 0 ? <IconTextButton type="submit" icon={<PlusGrayIcon width={16} height={16} />} color={colors.slate200} textColor={colors.slate900} text={isSmallScreen ? '' : '추가하기'} />
-        : <IconTextButton type="submit" icon={<PlusWhiteIcon width={16} height={16} />} color={colors.violet600} textColor="#fff" text={isSmallScreen ? '' : '추가하기'} />}
+      <IconTextButton type="submit" icon={buttonProperties.icon} color={buttonProperties.color} textColor={buttonProperties.textColor} text={isSmallScreen ? '' : '추가하기'} />
     </form>
   )
 }
