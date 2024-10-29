@@ -10,13 +10,12 @@ export default function Page() {
 
   if (!todoId) return;
 
-  if (!Number)
-    return (
-      <>
-        <Header />
-        <ContentArea>
-          <MainDetail itemId={todoId} />
-        </ContentArea>
-      </>
-    )
+  return (
+    <>
+      <Header />
+      <ContentArea>
+        <MainDetail itemId={todoId} />
+      </ContentArea>
+    </>
+  )
 }
