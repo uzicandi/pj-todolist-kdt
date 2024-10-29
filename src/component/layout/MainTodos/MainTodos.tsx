@@ -2,7 +2,7 @@ import TodoList from '@/component/feature/TodoList/TodoList';
 import styles from './MainTodos.module.css'
 import { useAtom } from 'jotai';
 import { patchTodosAtom, todosAtom } from '@/store/todos';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 
 const MainTodos = () => {
@@ -23,10 +23,7 @@ const MainTodos = () => {
   const todos = useMemo(() => newTodosData.filter((todo) => !todo.isCompleted), [newTodosData]);
   const dones = useMemo(() => newTodosData.filter((todo) => todo.isCompleted), [newTodosData]);
 
-  useEffect(() => {
-  }, [newTodosData]);
-  if (isPending) return <div>Loading...</div>
-  if (isMutatePending) return <div>Loading...</div>
+  // if (isPending || isMutatePending) return <div>...loading</div>;
   if (!todosData) return null;
 
   return (

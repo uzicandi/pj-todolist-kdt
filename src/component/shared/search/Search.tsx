@@ -12,21 +12,16 @@ interface Props {
 const Search = ({ placeholder = '할 일을 입력해주세요', value, onChange }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.shadow}>
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            className={styles.searchInput}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-          // min={0}
-          // max={0}
-          // disabled
-          // aria-hidden
-          />
-        </div>
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
       </div>
+      <div className={styles.shadow} />
     </div>
   );
 };

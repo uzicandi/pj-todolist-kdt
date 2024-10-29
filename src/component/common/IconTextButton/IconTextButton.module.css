@@ -40,13 +40,13 @@
 
 @media (max-width: 360px) {
   .buttonShadow {
-    width: 64px;
+    width: 56px;
   }
 }
 
 .iconButton {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
 }
 

@@ -3,7 +3,6 @@ import styles from './ImageForm.module.css'
 import ImageSvg from '@/assets/icons/imageSvg';
 import CircleButton from '@/component/common/CircleButton/CircleButton';
 import { PlusGrayIcon } from '@/assets/icons/plus_gray';
-import colors from '@/styles/theme/colors';
 import { api } from '@/pages/api/api';
 import { inputsAtom } from '@/store/atoms';
 import { useAtom } from 'jotai';
