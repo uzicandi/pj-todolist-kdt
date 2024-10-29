@@ -48,8 +48,8 @@ const MainDetail = ({ itemId }: Props) => {
         <MemoForm data={data} />
       </div>
       <div className={styles.buttonNav}>
-        <IconTextButton icon={<CheckIcon />} text="수정완료" color={colors.slate200} onClick={handleUpdateClick} />
-        <IconTextButton icon={<XIcon />} text="삭제하기" color={colors.rose500} onClick={handleDeleteClick} />
+        <IconTextButton icon={<CheckIcon />} text="수정완료" color={colors.slate200} textColor={colors.slate900} onClick={handleUpdateClick} />
+        <IconTextButton icon={<XIcon />} text="삭제하기" color={colors.rose500} textColor="#fff" onClick={handleDeleteClick} />
       </div>
     </div>
   )

@@ -5,18 +5,22 @@ interface IconTextButtonProps {
   icon?: React.ReactNode;
   text: string;
   color: string;
+  textColor: string;
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
 }
 
-// box-shadow를 이용해보세요.
-const IconTextButton = ({ icon, text, color, ...props }: IconTextButtonProps) => {
+const IconTextButton = ({ icon, text, color, textColor, ...props }: IconTextButtonProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.buttonShadow}`} />
-      <button {...props} className={`${styles.button} ${text ? styles.textButton : styles.iconButton}`} style={{ backgroundColor: color }}>
+      <button
+        {...props}
+        className={`${styles.button} ${text ? styles.textButton : styles.iconButton}`}
+        style={{ backgroundColor: color }}
+      >
         {icon}
-        {text && <span className={styles.text}>{text}</span>}
+        {text && <span className={styles.text} style={{ color: textColor }}>{text}</span>}
       </button>
     </div>
   );
