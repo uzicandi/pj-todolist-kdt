@@ -7,17 +7,17 @@
 
 .searchContainer {
   position: relative;
-  border: 2px solid #0F172A;
+  border: 2px solid var(--slate-900);
   border-radius: 24px;
   display: flex;
   padding: 14px 24px;
   width: 100%; 
   z-index: 2;
-  background-color: #F1F5F9; /* 배경색 (연한 Slate) */
+  background-color: var(--slate-100); 
 }
 
 .shadow {
-  background-color: #0F172A;  
+  background-color: var(--slate-900);  
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
   border-radius: 36px;  
   width: 100%;  
@@ -33,12 +33,12 @@
   border: none;
   outline: none;
   font-size: 16px;
-  color: #0F172A; /* 텍스트 색상 */
+  color: var(--slate-900); /* 텍스트 색상 */
   z-index: 3;
   background: transparent;
 }
 
 .searchInput::placeholder {
-  color: #64748B; /* Placeholder 텍스트 색상 */
+  color: var(--slate-500); /* Placeholder 텍스트 색상 */
 }
 

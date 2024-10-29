@@ -4,7 +4,7 @@ import colors from '@/styles/theme/colors';
 
 interface CircleButtonProps {
   icon: React.ReactNode;
-  color: keyof typeof colors; // color palette로 변경
+  color: keyof typeof colors;
   onClick?: () => void;
 }
 

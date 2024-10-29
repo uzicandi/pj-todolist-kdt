@@ -9,6 +9,7 @@ export default {
   component: CircleButton,
 };
 
+//@ts-ignore
 const Template = (args) => <CircleButton {...args} />;
 
 export const Default = Template.bind({});

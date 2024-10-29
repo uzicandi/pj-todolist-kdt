@@ -2,9 +2,9 @@
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #fff;
   height: 60px;
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid var(--slate-200);
 }
 
 .logoContainer {
