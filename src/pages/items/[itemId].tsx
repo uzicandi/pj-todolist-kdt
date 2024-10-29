@@ -5,12 +5,18 @@ import { useRouter } from 'next/router';
 
 export default function Page() {
   const { query: { itemId } } = useRouter();
-  return (
-    <>
-      <Header />
-      <ContentArea>
-        <MainDetail itemId={Number(itemId)} />
-      </ContentArea>
-    </>
-  )
+
+  const todoId = Number(itemId);
+
+  if (!todoId) return;
+
+  if (!Number)
+    return (
+      <>
+        <Header />
+        <ContentArea>
+          <MainDetail itemId={todoId} />
+        </ContentArea>
+      </>
+    )
 }

@@ -67,9 +67,9 @@ const ImageForm = ({ imageUrl }: Props) => {
 
   return (
     <div className={styles.imageForm}>
-      {imageUrl !== null && !uploadResponse ? <img src={imageUrl} alt="Uploaded" className={styles.uploadedImage} /> : null}
+      {imageUrl && !uploadResponse ? <img src={imageUrl} alt="Uploaded" className={styles.uploadedImage} /> : null}
       {uploadResponse && <img src={uploadResponse.url} alt="Uploaded" className={styles.uploadedImage} />}
-      {imageUrl === null && !uploadResponse ? <>
+      {!imageUrl && !uploadResponse ? <>
         <ImageSvg />
         {loading && <p>Uploading...</p>}
         {error && <p className={styles.errorMessage}>{error}</p>}

@@ -17,7 +17,6 @@ interface Props extends Item {
 // 근데 input-checkbox를 사용한다면, 어떨까
 // 또는 Icon 버튼 처럼 <CheckedIcon />을 사용한다면 어떨까
 const CheckList = ({ name, isCompleted, onClick, changable = false }: Props) => {
-  console.log('name', name)
   const [inputs, setInputs] = useAtom(inputsAtom);
 
   useEffect(() => {

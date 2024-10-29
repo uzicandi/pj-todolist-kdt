@@ -20,6 +20,7 @@ const SearchForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     mutate({ name: inputValue });
+    setInputValue('');
   }
 
   if (isPending) return null;
