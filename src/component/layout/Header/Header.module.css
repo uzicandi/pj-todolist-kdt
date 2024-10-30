@@ -10,6 +10,7 @@
 .logoContainer {
   display: flex;
   align-items: center;
+  width: 151px;
 }
 
 .logo {
@@ -20,17 +21,20 @@
 @media (max-width: 375px) {
   .logoContainer {
     margin-left: 16px;
+    width: 71px;
   }
 }
 
-@media (min-width: 744px) and (max-width: 1919px) {
+@media (min-width: 376px) and (max-width: 1919px) {
   .logoContainer {
     margin-left: 24px;
+    width: 151px;
   }
 }
 
 @media (min-width: 1200px) {
   .logoContainer {
     margin-left: 360px;
+    width: 151px;
   }
 }
