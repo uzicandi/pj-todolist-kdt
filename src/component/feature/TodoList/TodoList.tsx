@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import TodoImage from '../../../assets/images/todo.png'; // png -> webp로 변경하는 방향은 어떨지
+import TodoImage from '../../../assets/images/todo.png';
 import CheckList from '@/component/shared/check-list/CheckList';
 import styles from './TodoList.module.css';
 import Link from 'next/link';

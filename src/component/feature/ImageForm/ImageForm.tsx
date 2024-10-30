@@ -16,8 +16,7 @@ interface Props {
 const ImageForm = ({ imageUrl }: Props) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploadResponse, setUploadResponse] = useState<UploadResponse | null>(null);
-  const [loading] = useState(false);
-  const [error] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const [inputs, setInputs] = useAtom(inputsAtom);
 
   useEffect(() => {
@@ -30,46 +29,55 @@ const ImageForm = ({ imageUrl }: Props) => {
     fileInputRef.current?.click();
   };
 
+  const validateFile = (file: File) => {
+    if (file.size > 5 * 1024 * 1024) {
+      return "5MB 이하의 파일만 업로드 가능합니다.";
+    }
+    if (!/^[A-Za-z0-9._-]+$/.test(file.name)) {
+      return "파일 이름에는 영문자만 사용 가능합니다.";
+    }
+    return null;
+  };
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    const formData = new FormData();
 
     if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        console.error("File size exceeds 5MB");
-        alert("5MB 이하의 파일만 업로드 가능합니다.");
+      const validationError = validateFile(file);
+
+      if (validationError) {
+        setError(validationError);
         return;
       }
 
-      const isEnglish = /^[A-Za-z0-9._-]+$/.test(file.name);
-      if (!isEnglish) {
-        console.error("File name contains non-English characters");
-        alert("파일 이름에는 영문자만 사용 가능합니다.");
-        return;
-      }
-
+      const formData = new FormData();
       formData.append('image', file);
 
       try {
         const response: UploadResponse = await uploadImage(formData);
         setUploadResponse(response);
         setInputs({ ...inputs, imageUrl: response.url });
+        setError(null);
+
       } catch (error) {
         console.error("Upload error:", error);
+        setError('업로드 중 오류가 발생했습니다.');
       }
     }
   };
 
-
   return (
     <div className={styles.imageForm}>
-      {imageUrl && !uploadResponse ? <img src={imageUrl} alt="Uploaded" className={styles.uploadedImage} /> : null}
+      {imageUrl && !uploadResponse && <img src={imageUrl} alt="Uploaded" className={styles.uploadedImage} />}
       {uploadResponse && <img src={uploadResponse.url} alt="Uploaded" className={styles.uploadedImage} />}
-      {!imageUrl && !uploadResponse ? <>
-        <ImageSvg />
-        {loading && <p>Uploading...</p>}
-        {error && <p className={styles.errorMessage}>{error}</p>}
-      </> : null}
+      {error && (
+        <p className={styles.errorMessage}>{error}</p> // 에러 메시지를 이미지 위에 표시
+      )}
+      {!imageUrl && !uploadResponse && (
+        <>
+          <ImageSvg />
+        </>
+      )}
       <div className={styles.imageButton}>
         <CircleButton icon={<PlusGrayIcon />} color="slate200" onClick={handleButtonClick} />
         <input
