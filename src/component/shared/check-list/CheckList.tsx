@@ -13,9 +13,6 @@ interface Props extends Item {
   changable?: boolean;
 }
 
-// 문제없어
-// 근데 input-checkbox를 사용한다면, 어떨까
-// 또는 Icon 버튼 처럼 <CheckedIcon />을 사용한다면 어떨까
 const CheckList = ({ name, isCompleted, onClick, changable = false }: Props) => {
   const [inputs, setInputs] = useAtom(inputsAtom);
 

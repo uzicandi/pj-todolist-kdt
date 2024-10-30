@@ -51,9 +51,6 @@ const ImageForm = ({ imageUrl }: Props) => {
       formData.append('image', file);
 
       try {
-        // const response: UploadResponse = await api.post('api/jiwoo/images/upload', {
-        //   body: formData,
-        // }).json();
         const response: UploadResponse = await uploadImage(formData);
         setUploadResponse(response);
         setInputs({ ...inputs, imageUrl: response.url });

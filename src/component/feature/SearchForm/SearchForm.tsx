@@ -11,7 +11,7 @@ import { PlusWhiteIcon } from '@/assets/icons/plus_white'
 
 
 const SearchForm = () => {
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 360px)' }) // 공통화 할 수 있는 부분이지 useCheckSmallScreen
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 360px)' })
   const [{ data: todosData, isPending }] = useAtom(todosAtom);
 
   const [{ mutate }] = useAtom(postTodosAtom);

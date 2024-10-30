@@ -29,7 +29,7 @@ src
 │   ├── icons
 │   └── images
 ├── component
-│   ├── commonㅁ
+│   ├── common
 │   │   ├── CircleButton
 │   │   └── IconTextButton
 │   ├── feature

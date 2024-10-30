@@ -24,7 +24,6 @@ const TodoList = ({ list, checked, mutate }: Props) => {
   return (
     <div className={styles.todoList}>
       <Image src={checked ? DoneImage : TodoImage} alt={checked ? "Done List" : "Todo List"} width={101} height={36} />
-      {/* 퀄리티 속성과 우선순위 설정도 생각해보면 좋을것 */}
       {list.length === 0 ?
         <div className={styles.emptyImage}>
           <Image
