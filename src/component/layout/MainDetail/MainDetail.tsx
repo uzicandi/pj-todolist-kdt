@@ -41,17 +41,17 @@ const MainDetail = ({ itemId }: Props) => {
   }
 
   return (
-    <div className={styles.mainDetail}>
+    <form className={styles.mainDetail}>
       <CheckList {...data} onClick={handleUpdateTodoClick} changable />
       <div className={styles.mainNav}>
         <ImageForm imageUrl={data.imageUrl} />
         <MemoForm data={data} />
       </div>
       <div className={styles.buttonNav}>
-        <IconTextButton icon={<CheckIcon />} text="수정완료" color={colors.slate200} textColor={colors.slate900} onClick={handleUpdateClick} />
-        <IconTextButton icon={<XIcon />} text="삭제하기" color={colors.rose500} textColor="#fff" onClick={handleDeleteClick} />
+        <IconTextButton type="submit" icon={<CheckIcon />} text="수정완료" color={colors.slate200} textColor={colors.slate900} onClick={handleUpdateClick} />
+        <IconTextButton type="button" icon={<XIcon />} text="삭제하기" color={colors.rose500} textColor="#fff" onClick={handleDeleteClick} />
       </div>
-    </div>
+    </form>
   )
 }
 
