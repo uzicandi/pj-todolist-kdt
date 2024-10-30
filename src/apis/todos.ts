@@ -1,5 +1,5 @@
 import { api } from '@/pages/api/api';
-import { DetailItem, Item } from './todos.type';
+import { DetailItem, Item, UploadResponse } from './todos.type';
 
 export const getTodos = async () => {
   return await api.get('api/jiwoo/items').json<Item[]>();
@@ -29,4 +29,10 @@ export const patchTodo = async ({
 
 export const deleteTodo = async ({ id }: Pick<Item, 'id'>) => {
   return await api.delete(`api/jiwoo/items/${id}`).json<Item>();
+};
+
+export const uploadImage = async (formData: FormData) => {
+  return await api
+    .post('api/jiwoo/images/upload', { body: formData })
+    .json<UploadResponse>();
 };

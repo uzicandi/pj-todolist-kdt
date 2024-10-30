@@ -3,12 +3,11 @@ import styles from './ImageForm.module.css'
 import ImageSvg from '@/assets/icons/imageSvg';
 import CircleButton from '@/component/common/CircleButton/CircleButton';
 import { PlusGrayIcon } from '@/assets/icons/plus_gray';
-import { api } from '@/pages/api/api';
 import { inputsAtom } from '@/store/atoms';
 import { useAtom } from 'jotai';
-interface UploadResponse {
-  url: string;
-}
+import { uploadImage } from '@/apis/todos';
+import { UploadResponse } from '@/apis/todos.type';
+
 
 interface Props {
   imageUrl: string;
@@ -36,26 +35,26 @@ const ImageForm = ({ imageUrl }: Props) => {
     const formData = new FormData();
 
     if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB in bytes
+      if (file.size > 5 * 1024 * 1024) {
         console.error("File size exceeds 5MB");
-        alert("Please select a file smaller than 5MB.");
+        alert("5MB 이하의 파일만 업로드 가능합니다.");
         return;
       }
 
-      // Check if file name contains only English characters and digits
       const isEnglish = /^[A-Za-z0-9._-]+$/.test(file.name);
       if (!isEnglish) {
         console.error("File name contains non-English characters");
-        alert("Please use a file with an English name only.");
+        alert("파일 이름에는 영문자만 사용 가능합니다.");
         return;
       }
 
-      formData.append('image', file); // Use 'image' as the key to match the backend
+      formData.append('image', file);
 
       try {
-        const response: UploadResponse = await api.post('api/jiwoo/images/upload', {
-          body: formData, // Send FormData directly in the body
-        }).json();
+        // const response: UploadResponse = await api.post('api/jiwoo/images/upload', {
+        //   body: formData,
+        // }).json();
+        const response: UploadResponse = await uploadImage(formData);
         setUploadResponse(response);
         setInputs({ ...inputs, imageUrl: response.url });
       } catch (error) {

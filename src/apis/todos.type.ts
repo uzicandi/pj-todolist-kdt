@@ -11,3 +11,7 @@ export interface DetailItem {
   imageUrl: string;
   memo: string;
 }
+
+export interface UploadResponse {
+  url: string;
+}
