@@ -1,4 +1,3 @@
-import CheckList from '@/component/shared/check-list/CheckList';
 import { deleteTodosAtom, patchTodosAtom, todoAtom } from '@/store/todos';
 import { useAtom } from 'jotai';
 import { useMemo } from 'react';
@@ -11,6 +10,7 @@ import CheckIcon from '@/assets/icons/check';
 import { XIcon } from '@/assets/icons/x';
 import { useRouter } from 'next/router';
 import { inputsAtom } from '@/store/atoms';
+import CheckListDetail from '@/component/shared/check-list-detail/CheckListDetail';
 
 interface Props {
   itemId: number
@@ -32,8 +32,8 @@ const MainDetail = ({ itemId }: Props) => {
     await router.push('/');
   }
 
-  const handleUpdateTodoClick = () => {
-    updateMutate({ ...data, isCompleted: !data.isCompleted });
+  const handleUpdateTodoClick = (updatedInputs) => {
+    updateMutate({ ...data, isCompleted: updatedInputs.isCompleted, name: inputs.name, imageUrl: inputs.imageUrl, memo: inputs.memo });
   };
 
   const handleDeleteClick = () => {
@@ -43,7 +43,7 @@ const MainDetail = ({ itemId }: Props) => {
 
   return (
     <form className={styles.mainDetail} onSubmit={handleUpdateClick}>
-      <CheckList {...data} onClick={handleUpdateTodoClick} changable />
+      <CheckListDetail data={data} onClick={handleUpdateTodoClick} />
       <div className={styles.mainNav}>
         <ImageForm imageUrl={data.imageUrl} />
         <MemoForm data={data} />

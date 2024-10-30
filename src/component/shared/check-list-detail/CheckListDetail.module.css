@@ -1,39 +1,36 @@
+/* 전체 컨테이너 */
 .container {
   display: flex;
-  border: 2px solid var(--slate-900);
+  border: 2px solid var(--slate-800);
   border-radius: 24px;
   flex-direction: column;
   align-items: center;
-  padding: 16px
+  padding: 0;
+  gap: 10px;
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
 }
 
 .checkedContainer {
   background-color: var(--violet-100);
 }
 
-.shadow {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.listContainer {
+.checkboxContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  padding: 0;
   gap: 16px;
+  position: relative; 
+  width: auto; 
+  height: auto;
+  left: 12px;
+  top: 9px;
 }
 
-.label {
-  font-family: 'NanumSquare', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+.inputLabel {
+  background-color: transparent;
   text-decoration: underline;
-  line-height: 18px;
-  color: var(--slate-800);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  width: 110px;
-  height: 18px;
 }

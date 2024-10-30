@@ -4,4 +4,5 @@ export const inputsAtom = atom({
   imageUrl: '',
   memo: '',
   name: '',
+  isCompleted: false,
 });

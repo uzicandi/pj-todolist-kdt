@@ -10,10 +10,9 @@ interface Props extends Item {
   name: string;
   isCompleted: boolean;
   onClick?: () => void;
-  changable?: boolean;
 }
 
-const CheckList = ({ name, isCompleted, onClick, changable = false }: Props) => {
+const CheckList = ({ name, isCompleted, onClick }: Props) => {
   const [inputs, setInputs] = useAtom(inputsAtom);
 
   useEffect(() => {
@@ -27,15 +26,7 @@ const CheckList = ({ name, isCompleted, onClick, changable = false }: Props) => 
           e.preventDefault();
           onClick?.();
         }}>{isCompleted ? <CheckedIcon /> : <CheckBoxIcon />}</button>
-        {changable ? (
-          <input
-            type="text"
-            value={inputs.name}
-            onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
-            className={`${styles.inputLabel} ${isCompleted ? styles.checkedLabel : ''}`}
-          />
-        ) :
-          (<div className={`${styles.label} ${isCompleted ? styles.checkedLabel : ''}`}>{name}</div>)}
+        <div className={`${styles.label} ${isCompleted ? styles.checkedLabel : ''}`}>{name}</div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const MemoForm = ({ data }: Props) => {
   const [inputs, setInputs] = useAtom(inputsAtom);
 
   useEffect(() => {
-    setInputs({ ...inputs, name: data.name || "", imageUrl: data.imageUrl || "", memo: data.memo });
+    setInputs({ ...inputs, name: data.name || "", imageUrl: data.imageUrl || "", memo: data.memo || "" });
   }, [data]);
 
   return (
